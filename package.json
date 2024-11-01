@@ -1,0 +1,33 @@
+{
+  "name": "vue3-vite-three",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/node": "^22.7.9",
+    "axios": "^1.7.7",
+    "echarts": "^5.5.1",
+    "element-plus": "^2.8.6",
+    "pinia": "^2.2.4",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.4",
+    "fast-glob": "^3.2.11",
+    "sass": "^1.80.4",
+    "sass-loader": "^16.0.2",
+    "typescript": "~5.6.2",
+    "unplugin-auto-import": "^0.18.3",
+    "unplugin-vue-components": "^0.27.4",
+    "vite": "^5.4.9",
+    "vite-plugin-mock-dev-server": "^1.8.0",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vue-tsc": "^2.1.6"
+  }
+}
