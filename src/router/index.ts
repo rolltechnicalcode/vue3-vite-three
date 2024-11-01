@@ -1,7 +1,7 @@
 import type { App } from "vue";
 import {
   createRouter,
-  createWebHashHistory,
+  createWebHistory,
   type RouteRecordRaw,
 } from "vue-router";
 
@@ -34,13 +34,18 @@ export const constantRoutes: RouteRecordRaw[] = [
       },
     ],
   },
+  {
+    path: '/example',
+    component: () => import("@/views/example/index.vue"),
+    meta: { hidden: true },
+  },
 ];
 
 /**
  * 创建路由
  */
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: constantRoutes,
   // 刷新时，滚动条位置还原
   scrollBehavior: () => ({ left: 0, top: 0 }),

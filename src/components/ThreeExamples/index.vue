@@ -1,17 +1,18 @@
 <template>
-  <div class="box">
+  <div class="box" @click="emitEvent(item)">
     <div>
       <div class="el-image image">
-        <img src="https://z2586300277.github.io/three-cesium-examples/threeExamples/basic/modelLoad.jpg" class="el-image__inner" style="object-fit: cover;">
+        <img :src="item.imgUrl" class="el-image__inner" style="object-fit: cover;">
       </div>
     </div>
     <div class="author">
       <div class="mainAuthor">
         <div class="el-image author-image">
-          <img src="https://z2586300277.github.io/three-cesium-examples/files/author/z2586300277.png" class="el-image__inner">
+          <img :src="item.userUrl" class="el-image__inner">
         </div>
         <span>
-          太阳Code
+          {{ item.name}}
+          
         </span>
       </div>
       <div class="overAuthor">
@@ -19,7 +20,7 @@
     </div>
     <div class="name-content">
       <div class="text">
-        gltf/fbx/obj模型加载
+        {{ item.text }}
       </div>
       <div class="overBox">
         <div class="leftOver">
@@ -31,6 +32,23 @@
 
 
 <script setup lang="ts">
+const props = defineProps({
+  item: {
+    type: Object,
+    default() {
+      return {};
+    },
+    required: true,
+  }
+});
+
+const emit = defineEmits(['child-event']);
+ 
+const emitEvent = (item) => {
+  emit('child-event', item);
+};
+
+
 </script>
 
 <style scoped lang="scss">

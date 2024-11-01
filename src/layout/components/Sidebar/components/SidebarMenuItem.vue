@@ -1,51 +1,51 @@
 <template>
   <!-- 如果菜单项未隐藏，显示菜单项 -->
-  <!-- <div v-if="!item.meta || !item.meta.hidden"> -->
-  <!-- 如果只有一个子路由或没有子路由，显示该菜单项 -->
-  <template
-    v-if="
-        hasOneShowingChild(item.children, item as RouteRecordRaw) &&
-        (!onlyOneChild.children || onlyOneChild.noShowingChildren) &&
-        !item.meta?.alwaysShow
-      "
-  >
-    <AppLink
-      v-if="onlyOneChild.meta"
-      :to="{
-        path: resolvePath(onlyOneChild.path),
-        query: onlyOneChild.meta.params,
-      }"
+  <div v-if="!item.meta || !item.meta.hidden">
+    <!-- 如果只有一个子路由或没有子路由，显示该菜单项 -->
+    <template
+      v-if="
+          hasOneShowingChild(item.children, item as RouteRecordRaw) &&
+          (!onlyOneChild.children || onlyOneChild.noShowingChildren) &&
+          !item.meta?.alwaysShow
+        "
     >
-      <el-menu-item
-        :index="resolvePath(onlyOneChild.path)"
-        :class="{ 'submenu-title-noDropdown': !isNest }"
+      <AppLink
+        v-if="onlyOneChild.meta"
+        :to="{
+          path: resolvePath(onlyOneChild.path),
+          query: onlyOneChild.meta.params,
+        }"
       >
-        <SidebarMenuItemTitle
-          :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
-          :title="onlyOneChild.meta.title"
-        />
-      </el-menu-item>
-    </AppLink>
-  </template>
-
-  <!-- 如果有多个子路由，显示父菜单项 -->
-  <el-sub-menu :index="resolvePath(item.path)" v-else teleported>
-    <template #title>
-      <SidebarMenuItemTitle
-        v-if="item.meta"
-        :icon="item.meta && item.meta.icon"
-        :title="item.meta.title"
-      />
+        <el-menu-item
+          :index="resolvePath(onlyOneChild.path)"
+          :class="{ 'submenu-title-noDropdown': !isNest }"
+        >
+          <SidebarMenuItemTitle
+            :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
+            :title="onlyOneChild.meta.title"
+          />
+        </el-menu-item>
+      </AppLink>
     </template>
-    <SidebarMenuItem
-      v-for="child in item.children"
-      :key="child.path"
-      :item="child"
-      :is-nest="true"
-      :base-path="resolvePath(child.path)"
-    />
-  </el-sub-menu>
-  <!-- </div> -->
+
+    <!-- 如果有多个子路由，显示父菜单项 -->
+    <el-sub-menu :index="resolvePath(item.path)" v-else teleported>
+      <template #title>
+        <SidebarMenuItemTitle
+          v-if="item.meta"
+          :icon="item.meta && item.meta.icon"
+          :title="item.meta.title"
+        />
+      </template>
+      <SidebarMenuItem
+        v-for="child in item.children"
+        :key="child.path"
+        :item="child"
+        :is-nest="true"
+        :base-path="resolvePath(child.path)"
+      />
+    </el-sub-menu>
+  </div>
 </template>
 
 <script lang="ts" setup>
