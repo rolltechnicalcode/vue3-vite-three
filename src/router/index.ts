@@ -10,6 +10,11 @@ export const Layout = () => import("@/layout/index.vue");
 // 静态路由
 export const constantRoutes: RouteRecordRaw[] = [
   {
+    path: '/example/:compName',
+    component: () => import("@/views/example/index.vue"),
+    meta: { hidden: true },
+  },
+  {
     path: "/",
     name: "/",
     component: Layout,
@@ -33,11 +38,6 @@ export const constantRoutes: RouteRecordRaw[] = [
         meta: { hidden: true },
       },
     ],
-  },
-  {
-    path: '/example',
-    component: () => import("@/views/example/index.vue"),
-    meta: { hidden: true },
   },
 ];
 

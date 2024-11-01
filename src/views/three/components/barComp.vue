@@ -4,10 +4,10 @@
     🍀总数：170
     </div>
     <div class="gitInfo">
-      <img src="https://img.shields.io/github/stars/z2586300277/three-cesium-examples?style=social" alt="GitHub stars">
-      <img src="https://img.shields.io/badge/47人-贡献者-ff69b4" alt="GitHub contributors">
-      <img src="https://img.shields.io/github/last-commit/z2586300277/three-cesium-examples" alt="GitHub last commit">
-      <img src="https://img.shields.io/github/license/z2586300277/three-cesium-examples" alt="GitHub license">
+      <img src="https://img.shields.io/github/stars/rolltechnicalcode/vue3-vite-three?style=social" alt="GitHub stars">
+      <img src="https://img.shields.io/badge/17人-贡献者-ff69b4" alt="GitHub contributors">
+      <svg-icon icon-class="last-commit" size="10em" />
+      <svg-icon icon-class="license" size="8em" />
     </div>
     <div class="el-input-group">
       <el-input
@@ -48,7 +48,7 @@
     display: flex;
     align-items: center;
     font-size: 14px;
-    > img {
+    > img, > svg {
       margin: 0 10px;
       transition: all .3s;
       cursor: pointer;

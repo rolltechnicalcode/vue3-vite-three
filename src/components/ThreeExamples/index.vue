@@ -2,17 +2,16 @@
   <div class="box" @click="emitEvent(item)">
     <div>
       <div class="el-image image">
-        <img :src="item.imgUrl" class="el-image__inner" style="object-fit: cover;">
+        <img :src="getAssetsFile(item.imgUrl)" class="el-image__inner" style="object-fit: cover;">
       </div>
     </div>
     <div class="author">
       <div class="mainAuthor">
         <div class="el-image author-image">
-          <img :src="item.userUrl" class="el-image__inner">
+          <img src="@/assets/images/github.png" class="el-image__inner">
         </div>
         <span>
           {{ item.name}}
-          
         </span>
       </div>
       <div class="overAuthor">
@@ -41,9 +40,14 @@ const props = defineProps({
     required: true,
   }
 });
+const getAssetsFile = (url) => {
+  let newUrl = `/src/${url}`
+  return new URL(newUrl, import.meta.url).href
+}
+
+
 
 const emit = defineEmits(['child-event']);
- 
 const emitEvent = (item) => {
   emit('child-event', item);
 };
@@ -107,6 +111,7 @@ const emitEvent = (item) => {
         > img {
           height: 100%;
           width: 100%;
+          background-color: black;
         }
       }
       > span {

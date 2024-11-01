@@ -26,18 +26,20 @@ import examplesItemComp from '@/components/ThreeExamples/index.vue'
 
 const basicList = ref<any>([
   {
-    imgUrl: 'https://z2586300277.github.io/three-cesium-examples/threeExamples/basic/modelLoad.jpg',
-    userUrl: 'https://z2586300277.github.io/three-cesium-examples/files/author/z2586300277.png',
+    imgUrl: '/views/three/basicCase/Geometry.jpg',
     name: '太阳Code',
     text: '几何体创建',
-    exampleUrl: ''
+    exampleUrl: '/example/Geometry'
   }
 ])
 
 const onChildEvent = (data: any) => {
   console.log("点击：", data)
-  // 路由跳转
-  window.open('/example')
+  if(data.exampleUrl) {
+    // 路由跳转
+    window.open(data.exampleUrl)
+  }
+  
 }
 
 
