@@ -29,7 +29,7 @@ const basicList = ref<any>([
     imgUrl: 'https://z2586300277.github.io/three-cesium-examples/threeExamples/basic/modelLoad.jpg',
     userUrl: 'https://z2586300277.github.io/three-cesium-examples/files/author/z2586300277.png',
     name: '太阳Code',
-    text: 'gltf/fbx/obj模型加载',
+    text: '几何体创建',
     exampleUrl: ''
   }
 ])
