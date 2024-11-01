@@ -14,7 +14,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     name: "/",
     component: Layout,
     redirect: "/home",
-    meta: { title: '首页', hidden: true },
+    meta: { title: '首页', hidden: false },
     children: [
       {
         path: "home",
