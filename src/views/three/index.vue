@@ -26,6 +26,12 @@ import examplesItemComp from '@/components/ThreeExamples/index.vue'
 
 const basicList = ref<any>([
   {
+    imgUrl: '/views/three/basicCase/Dotline.jpg',
+    name: '太阳Code',
+    text: '点线创建',
+    exampleUrl: '/example/Dotline'
+  },
+  {
     imgUrl: '/views/three/basicCase/Geometry.jpg',
     name: '太阳Code',
     text: '几何体创建',
