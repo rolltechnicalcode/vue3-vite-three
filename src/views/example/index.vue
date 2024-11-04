@@ -1,5 +1,4 @@
 <template>
-  <Geometry />
   <component :is="currentComponent"></component>
 </template>
 

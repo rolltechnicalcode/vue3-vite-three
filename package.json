@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/node": "^22.7.9",
     "axios": "^1.7.7",
+    "cesium": "^1.123.0",
     "echarts": "^5.5.1",
     "element-plus": "^2.8.6",
     "pinia": "^2.2.4",
@@ -27,6 +28,7 @@
     "unplugin-auto-import": "^0.18.3",
     "unplugin-vue-components": "^0.27.4",
     "vite": "^5.4.9",
+    "vite-plugin-cesium": "^1.2.23",
     "vite-plugin-mock-dev-server": "^1.8.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-tsc": "^2.1.6"

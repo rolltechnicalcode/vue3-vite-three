@@ -1,5 +1,6 @@
 import { type UserConfig, type ConfigEnv, loadEnv, defineConfig } from "vite";
 import vue from '@vitejs/plugin-vue'
+import cesium from 'vite-plugin-cesium';
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import mockDevServerPlugin from "vite-plugin-mock-dev-server";
@@ -38,7 +39,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     },
     // ...
     plugins: [
-      vue(),
+      vue(), cesium(),
       // MOCK 服务
       env.VITE_MOCK_DEV_SERVER === "true" ? mockDevServerPlugin() : null,
       AutoImport({
