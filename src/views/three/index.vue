@@ -13,7 +13,15 @@
               </div>
             </div>
           </div>
-          <!-- 高级案例 -->
+          <!-- 模型案例 -->
+          <div class="case-item">
+            <el-divider content-position="left">模型案例</el-divider>
+            <div class="examples">
+              <div class="examples-item" v-for="item in modelList">
+                <examplesItemComp :item="item" @child-event="onChildEvent" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -21,6 +29,7 @@
 </template>
 
 <script setup lang="ts">
+import router from '@/router';
 import barComp from './components/barComp.vue'
 import examplesItemComp from '@/components/ThreeExamples/index.vue'
 
@@ -29,21 +38,42 @@ const basicList = ref<any>([
     imgUrl: '/views/three/basicCase/Dotline.jpg',
     name: '太阳Code',
     text: '点线创建',
-    exampleUrl: '/example/Dotline'
+    exampleName: 'basicCase',
+    compUrl: "Dotline",
   },
   {
     imgUrl: '/views/three/basicCase/Geometry.jpg',
     name: '太阳Code',
     text: '几何体创建',
-    exampleUrl: '/example/Geometry'
+    exampleName: 'basicCase',
+    compUrl: "Geometry",
+  }
+])
+const modelList = ref<any>([
+  {
+    imgUrl: '/views/three/modelCase/People.jpg',
+    name: '太阳Code',
+    text: '人模型加载',
+    exampleName: 'modelCase',
+    compUrl: "People",
+    // exampleUrl: '/example/People'
   }
 ])
 
 const onChildEvent = (data: any) => {
   console.log("点击：", data)
-  if(data.exampleUrl) {
+  if(data.compUrl) {
+    let newUrl = router.resolve({
+      path: "/example",
+      query: {
+        exampleName: data.exampleName,
+        compUrl: data.compUrl,
+        wdds: data.wdds
+      },
+    });
     // 路由跳转
-    window.open(data.exampleUrl)
+    window.open(newUrl.href, "_blank");
+    // window.open(data.compUrl)
   }
   
 }
