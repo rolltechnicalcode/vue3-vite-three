@@ -1,4 +1,4 @@
-import { defineMock } from "./base";
+import { defineMock } from "./base"
 
 export default defineMock([
   {
@@ -8,16 +8,29 @@ export default defineMock([
       code: "00000",
       data: [
         {
+          path: "/mapWorld",
+          component: "Layout",
+          name: "/mapWorld",
+          children: [
+            {
+              path: "mapWorld",
+              component: "mapWorld/index",
+              name: "mapWorld",
+              meta: {
+                title: "天地图案例",
+                icon: "three",
+                hidden: false,
+                keepAlive: true,
+                alwaysShow: false,
+                params: null,
+              },
+            },
+          ],
+        },
+        {
           path: "/three",
           component: "Layout",
           name: "/three",
-          meta: {
-            title: "系统工具",
-            icon: "menu",
-            hidden: false,
-            alwaysShow: false,
-            params: null,
-          },
           children: [
             {
               path: "three",
@@ -173,4 +186,4 @@ export default defineMock([
       msg: "一切ok",
     },
   },
-]);
+])

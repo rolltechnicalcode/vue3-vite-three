@@ -8,8 +8,8 @@ import { useRoute } from 'vue-router'
 const route = useRoute();
 
 // 获取路由参数
-const exampleName = route.query.exampleName;
-const compUrl = route.query.compUrl;
+const exampleName = route.query.exampleName
+const compUrl = route.query.compUrl
 
 let currentComponent = ref(null);
 
