@@ -197,7 +197,35 @@ const addArea = () => {
   // 添加图层
   myMap.value.addLayer(provinceLayer.value);
   // 添加点击事件
-  // this.onClickEvent();
+  onClickEvent();
+}
+
+const onClickEvent = () => {
+  // 当你需要取消点击事件的监听时，可以这样做：
+  myMap.value.un("singleclick", handleMapClick, this);
+  // ===== 监听地图单击事件 =====
+  myMap.value.on("singleclick", handleMapClick, this);
+}
+
+const handleMapClick = (e) => {
+  let feature = myMap.value.forEachFeatureAtPixel(
+    e.pixel,
+    (feature) => feature
+  );
+  let { coordinate } = e;
+  if (feature) {
+    //添加要素
+    // var point = new Feature({
+    //   geometry: new Point(coordinate),
+    // });
+    console.log(coordinate, "点击：", feature);
+    if (feature.values_.onClick) {
+      feature.values_.onClick();
+    }
+    // this.vectorLayer.addFeature(point);
+  } else {
+    console.log("click the map get coordinate", coordinate.join());
+  }
 }
 
 // 绘制市区图层
@@ -216,7 +244,6 @@ const addMarketLayer = () => {
         item.name || "无"
       }`,
       onClick: () => {
-        console.log('点击漫游');
         roamMap(item);
       },
     });
@@ -289,7 +316,6 @@ const createMarketStyle = (feature) => {
 
 // 漫游
 const roamMap = (item) => {
-  console.log('漫游', item);
   const view = myMap.value.getView();
   view.animate({
     center: item.point,
